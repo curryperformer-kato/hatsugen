@@ -1,0 +1,11 @@
+<p><%= notice %></p>
+
+<h1>みんなの発言一覧</h1>
+
+<% @kyoshus.each do |kyoshu| %>
+  <p>発言:<%= kyoshu.content %></p>
+  <%= link_to "発言を訂正する", edit_kyoshu_path(kyoshu.id) %>
+  <%= link_to "発言を撤回する", kyoshu_path(kyoshu.id), method: :delete, data: { confirm: "発言を撤回しますか？" } %>
+<% end %>
+
+<%= link_to "発言する", new_kyoshu_path %>

@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+   <h3>この内容を発言しますか？</h3>
+   <%= form_for(@kyoshu) do |f| %>
+    <%= f.hidden_field :content %>
+    <p>内容:<%= @kyoshu.content %></p>
+    <%= f.submit "声に出す",class: 'btn btn-primary btn-block' %>
+   <% end %>
+   <%= form_for(@kyoshu, url: new_kyoshu_path, method: 'get') do |f| %>
+    <%= f.hidden_field :content %>
+    <%= f.submit "心の中に秘めておく", name: 'back', class: 'btn btn-default btn-block' %>
+   <% end %>
+  </div>
+</div>
